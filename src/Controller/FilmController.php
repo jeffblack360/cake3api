@@ -11,13 +11,10 @@ class FilmController extends AppController
 {
     public $paginate = [
         'page' => 1,
-        'limit' => 10,
-        'maxLimit' => 100,
-        'fields' => [
-            'film_id', 'title', 'description'
-        ],
+        'limit' => 5,
+        'maxLimit' => 15,
         'sortWhiteList' => [
-            'film_id', 'title', 'description'
+            'film_id', 'title'
         ]
     ];
 }
