@@ -43,8 +43,8 @@ Router::defaultRouteClass('DashedRoute');
 
 Router::extensions(['json', 'xml']);
 
-Router::scope('/', function ($routes) {
-    $routes->resources('Films');
+Router::scope('/', function ($routes) {    
+    $routes->resources('Film');
     
     /**
      * Here, we are connecting '/' (base path) to a controller called 'Pages',

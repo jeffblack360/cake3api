@@ -31,7 +31,6 @@ class AppController extends Controller
     use \Crud\Controller\ControllerTrait;
     
     public $components = [
-        'RequestHandler',
         'Crud.Crud' => [
             'actions' => [
                 'Crud.Index',
