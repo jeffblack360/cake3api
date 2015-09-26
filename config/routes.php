@@ -41,10 +41,12 @@ use Cake\Routing\Router;
  */
 Router::defaultRouteClass('DashedRoute');
 
-Router::extensions(['json', 'xml']);
+Router::prefix('api', function ($routes) {
+    $routes->extensions(['json','xml']);
+    $routes->resources('Film');
+});
 
 Router::scope('/', function ($routes) {    
-    $routes->resources('Film');
     
     /**
      * Here, we are connecting '/' (base path) to a controller called 'Pages',

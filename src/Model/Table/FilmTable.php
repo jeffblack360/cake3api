@@ -28,7 +28,7 @@ class FilmTable extends Table
     public function initialize(array $config)
     {
         parent::initialize($config);
-
+        
         $this->table('film');
         $this->displayField('title');
         $this->primaryKey('film_id');
