@@ -11,13 +11,6 @@ class StaffFixture extends TestFixture
 {
 
     /**
-     * Table name
-     *
-     * @var string
-     */
-    public $table = 'staff';
-
-    /**
      * Fields
      *
      * @var array
@@ -68,7 +61,7 @@ class StaffFixture extends TestFixture
             'active' => 1,
             'username' => 'Lorem ipsum do',
             'password' => 'Lorem ipsum dolor sit amet',
-            'last_update' => 1443379856
+            'last_update' => 1443476394
         ],
     ];
 }

@@ -10,7 +10,7 @@ use Cake\Validation\Validator;
 /**
  * Staff Model
  *
- * @property \Cake\ORM\Association\BelongsTo $Staffs
+ * @property \Cake\ORM\Association\BelongsTo $Staff
  * @property \Cake\ORM\Association\BelongsTo $Address
  * @property \Cake\ORM\Association\BelongsTo $Store
  */
@@ -31,7 +31,7 @@ class StaffTable extends Table
         $this->displayField('staff_id');
         $this->primaryKey('staff_id');
 
-        $this->belongsTo('Staffs', [
+        $this->belongsTo('Staff', [
             'foreignKey' => 'staff_id',
             'joinType' => 'INNER'
         ]);
@@ -98,7 +98,7 @@ class StaffTable extends Table
     {
         $rules->add($rules->isUnique(['email']));
         $rules->add($rules->isUnique(['username']));
-        $rules->add($rules->existsIn(['staff_id'], 'Staffs'));
+        $rules->add($rules->existsIn(['staff_id'], 'Staff'));
         $rules->add($rules->existsIn(['address_id'], 'Address'));
         $rules->add($rules->existsIn(['store_id'], 'Store'));
         return $rules;
