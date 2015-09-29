@@ -35,6 +35,20 @@ class AppController extends Controller
         parent::initialize();
         
         $this->loadComponent('RequestHandler');
+
+        $this->loadComponent('Auth', [
+            'authenticate' => [
+                'Form',
+                'ADmad/JwtAuth.Jwt' => [
+                    'parameter' => '_token',
+                    'userModel' => 'Staff',
+                    'scope' => ['Staff.active' => 1],
+                    'fields' => [
+                        'id' => 'staff_id'
+                    ]
+                ]
+            ]
+        ]);
     }
 
 }

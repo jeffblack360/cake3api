@@ -44,6 +44,10 @@ Router::defaultRouteClass('DashedRoute');
 Router::prefix('api', function ($routes) {
     $routes->extensions(['json','xml']);
     $routes->resources('Film');
+    $routes->resources('Users');
+//    $routes->resources('Staff');
+    Router::connect('/api/users/register', ['controller' => 'Users', 'action' => 'add', 'prefix' => 'api']);
+    $routes->fallbacks('InflectedRoute');
 });
 
 Router::scope('/', function ($routes) {    

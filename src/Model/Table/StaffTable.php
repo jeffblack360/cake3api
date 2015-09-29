@@ -53,36 +53,31 @@ class StaffTable extends Table
      */
     public function validationDefault(Validator $validator)
     {
-        $validator
-            ->requirePresence('first_name', 'create')
-            ->notEmpty('first_name');
-
-        $validator
-            ->requirePresence('last_name', 'create')
-            ->notEmpty('last_name');
-
-        $validator
-            ->allowEmpty('picture');
-
-        $validator
-            ->add('email', 'valid', ['rule' => 'email'])
-            ->allowEmpty('email');
-
-        $validator
-            ->add('active', 'valid', ['rule' => 'boolean'])
-            ->requirePresence('active', 'create')
-            ->notEmpty('active');
-
-        $validator
-            ->requirePresence('username', 'create')
-            ->notEmpty('username');
-
-        $validator
-            ->allowEmpty('password');
-
-        $validator
-            ->requirePresence('last_update', 'create')
-            ->notEmpty('last_update');
+//        $validator
+//            ->allowEmpty('first_name');
+//
+//        $validator
+//            ->allowEmpty('last_name');
+//
+//        $validator
+//            ->allowEmpty('picture');
+//
+//        $validator
+//            ->add('email', 'valid', ['rule' => 'email'])
+//            ->allowEmpty('email');
+//
+//        $validator
+//            ->add('active', 'valid', ['rule' => 'boolean'])
+//            ->notEmpty('active');
+//
+//        $validator
+//            ->notEmpty('username');
+//
+//        $validator
+//            ->allowEmpty('password');
+//
+//        $validator
+//            ->allowEmpty('last_update');
 
         return $validator;
     }
@@ -96,11 +91,11 @@ class StaffTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->isUnique(['email']));
-        $rules->add($rules->isUnique(['username']));
-        $rules->add($rules->existsIn(['staff_id'], 'Staff'));
-        $rules->add($rules->existsIn(['address_id'], 'Address'));
-        $rules->add($rules->existsIn(['store_id'], 'Store'));
+//        $rules->add($rules->isUnique(['email']));
+//        $rules->add($rules->isUnique(['username']));
+//        $rules->add($rules->existsIn(['staff_id'], 'Staff'));
+//        $rules->add($rules->existsIn(['address_id'], 'Address'));
+//        $rules->add($rules->existsIn(['store_id'], 'Store'));
         return $rules;
     }
 }
