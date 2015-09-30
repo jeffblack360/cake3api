@@ -41,10 +41,10 @@ class AppController extends Controller
                 'Form',
                 'ADmad/JwtAuth.Jwt' => [
                     'parameter' => '_token',
-                    'userModel' => 'Staff',
-                    'scope' => ['Staff.active' => 1],
+                    'userModel' => 'Users',
+                    'scope' => ['Users.active' => 1],
                     'fields' => [
-                        'id' => 'staff_id'
+                        'id' => 'id'
                     ]
                 ]
             ]

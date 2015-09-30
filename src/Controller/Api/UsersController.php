@@ -20,7 +20,7 @@ class UsersController extends AppController
         ]
     ];
     
-    public function beforeFilter(\Cake\Event\Event $event)
+    public function beforeFilter(Event $event)
     {
         parent::beforeFilter($event);
         $this->Auth->allow(['add', 'token']);
@@ -28,7 +28,7 @@ class UsersController extends AppController
     
     public function add()
     {
-        $this->Crud->on('afterSave', function(\Cake\Event\Event $event) {
+        $this->Crud->on('afterSave', function(Event $event) {
             if ($event->subject->created) {
                 $this->set('data', [
                     'staff_id' => $event->subject->entity->id,
@@ -45,4 +45,23 @@ class UsersController extends AppController
         return $this->Crud->execute();
     }
 
+    public function token()
+    {
+        $user = $this->Auth->identify();
+        
+        if (!$user) {
+            throw new UnauthorizedException('Invalid username or password');
+        }
+
+        $this->set([
+            'success' => true,
+            'data' => [
+                'token' => $token = \JWT::encode([
+                    'id' => $user['id'],
+                    'exp' => time() + 604800
+                        ], Security::salt())
+            ],
+            '_serialize' => ['success', 'data']
+        ]);
+    }
 }
